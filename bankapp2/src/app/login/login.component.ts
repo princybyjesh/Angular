@@ -20,9 +20,29 @@ psw=""
 
   ngOnInit(): void {
   }
-login(){
-  var acnum=this.acno
-  var psw=this.psw
+// login(){
+//   var acnum=this.acno
+//   var psw=this.psw
+//   let userDetails=this.UserDetails
+//   if(acnum in userDetails ){
+//     if(psw==userDetails[acnum]['password']){
+//       alert("login succcess")
+//     }
+//     else{
+//       alert("password incorrect")
+//     }
+//   }
+//   else{
+//     alert("user not exist")
+//   }
+// }
+login(a:any,b:any){
+  console.log(a.value);
+  console.log(b.value);
+  
+  
+  var acnum=a.value
+  var psw=b.value
   let userDetails=this.UserDetails
   if(acnum in userDetails ){
     if(psw==userDetails[acnum]['password']){
