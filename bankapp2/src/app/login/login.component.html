@@ -2,14 +2,14 @@
 <div class="container w-50 bg-light border mt-5 p-3">
     <h1 class="text-center">login page</h1>
     <div class="mt-2 p-2">
-        <input type="text" [placeholder]="acnt" #acno  class="form-control" id="acid">
+        <input name="acno" type="text" [placeholder]="acnt" [(ngModel)]="acno"  class="form-control" id="acid">
 </div>
 <div class="mt-2 p-2">
-    <input type="text" placeholder="password"  #psw class="form-control" id="acid">
+    <input name="psw" type="text" placeholder="password" [(ngModel)]="psw"  class="form-control" id="acid">
 </div>
 
 <div class="text-center mt-2 p-2">
-    <button type="button" (click)="login(acno,psw)" class="btn btn-sucess">login</button>
+    <button type="button" (click)="login()" class="btn btn-sucess">login</button>
     <p>new user?</p><button type="button" onclick="" class="btn btn-sucess">register</button>
 
 </div>
