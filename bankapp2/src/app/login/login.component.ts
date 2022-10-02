@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ psw=''
     1003:{acno:1000,username:"ammu",password:113,balance:100000},
   }
   
-  constructor(private router:Router) { 
+  constructor(private router:Router,private ds:DataService) { 
 
     
     
@@ -29,25 +30,12 @@ psw=''
   
 login(){
   var acnum=this.acno
-  var psww=this.psw
-
-  console.log(acnum);
-  console.log(psww);
-  let userDetails=this.UserDetails
-  if(acnum in userDetails ){
-    console.log(userDetails[acnum]['password']);
-    if(psww==userDetails[acnum]['password']){
-      alert("login succcess")
-      // redirection
-      this.router.navigateByUrl('dashboard')
-    }
-    else{
-      alert("password incorrect")
-    }
-  }
-  else{
-    alert("user not exist")
-  }
+  var psw=this.psw
+ const result= this.ds.login(acnum,psw)
+if(result){
+  alert("login success")
+  this.router.navigateByUrl('dashboard')
+}
 }
 }
 // login(a:any,b:any){

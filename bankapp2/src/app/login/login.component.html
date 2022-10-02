@@ -4,14 +4,15 @@
     <div class="mt-2 p-2">
         <input name="acno" type="text" [placeholder]="acnt" [(ngModel)]="acno"  class="form-control" id="acid">
 </div>
+<form (ngSubmit)="login()" >
 <div class="mt-2 p-2">
     <input name="psw" type="text" placeholder="password" [(ngModel)]="psw"  class="form-control" id="acid">
 </div>
 
 <div class="text-center mt-2 p-2">
-    <button type="button" (click)="login()" class="btn btn-sucess">login</button>
-    <p>new user?</p><button type="button" onclick="" class="btn btn-sucess">register</button>
+    <button type="submit" class="btn btn-sucess">login</button>
+    <p>new user?</p> <a class="aaa" routerLink="register">register </a> 
 
 </div>
-
+</form>
 </div>
