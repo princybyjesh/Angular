@@ -1,1 +1,53 @@
-<p>dashboard works!</p>
+<div>
+    <h1>WELCOME{{user}}</h1>
+</div>
+<div class="p-5 mt-3 ms-3 bg-light" style="height: 50px;width: 400px;">
+<a routerLink="/transations">view transation history</a>
+</div>
+<div class="container w-50 bg-light border mt-5 p-3">
+    <h1 class="text-center">Deposit</h1>
+
+    <div class="mt-2 p-2">
+     <input name="acno" type="text" placeholder="Enter acno" [(ngModel)]="acnum"  class="form-control" id="acno">
+</div>
+
+<form (ngSubmit)="deposit()">
+ <div class="mt-2 p-2">
+     <input name="psw" type="text" placeholder="Enter password" [(ngModel)]="pswrd"  class="form-control" id="psw">
+ </div>
+ <div class="mt-2 p-2">
+     <input name="amnt" type="text" placeholder="Enter amount" [(ngModel)]="amnt"  class="form-control" id="amnt">
+ </div>
+
+ <div class="text-center mt-2 p-2">
+     <button type="submit" class="btn btn-sucess">Deposit</button>
+ 
+ </div>
+ 
+</form>
+</div>
+
+
+
+<div class="container w-50 bg-light border mt-5 p-3">
+    <div class="mt-2 p-2">
+        <h1 class="text-center">withdraw</h1>
+
+     <input name="acnum1" type="text" placeholder="Enter acno" [(ngModel)]="acnum1"  class="form-control" id="unamee">
+</div>
+
+<form (ngSubmit)="withdraw()">
+ <div class="mt-2 p-2">
+     <input name="pswrd1" type="text" placeholder="Enter password" [(ngModel)]="pswrd1"  class="form-control" id="pass">
+ </div>
+ <div class="mt-2 p-2">
+     <input name="amnt1" type="text" placeholder="Enter amount" [(ngModel)]="amnt1"  class="form-control" id="amt">
+ </div>
+
+ <div class="text-center mt-2 p-2">
+     <button type="submit" class="btn btn-sucess">Withdraw</button>
+ 
+ </div>
+ 
+</form>
+</div>
