@@ -1,14 +1,14 @@
     <div class="container w-50 bg-light border mt-5 p-3">
            <div class="mt-2 p-2">
-            <input name="username" type="text" placeholder="Enter Username" [(ngModel)]="uname"  class="form-control" id="unamee">
+            <input formControlName="username" name="username" type="text" placeholder="Enter Username" [(ngModel)]="uname"  class="form-control" id="unamee">
     </div>
     
- <form (ngSubmit)="register()">
+ <form (ngSubmit)="register() " [formGroup]="registerForm" >
         <div class="mt-2 p-2">
-            <input name="acno" type="text" placeholder="Enter acnumber" [(ngModel)]="acno"  class="form-control" id="anum">
+            <input formControlName="acno"  name="acno" type="text" placeholder="Enter acnumber" [(ngModel)]="acno"  class="form-control" id="anum">
         </div>
         <div class="mt-2 p-2">
-            <input name="psw" type="text" placeholder="Enter password" [(ngModel)]="psw"  class="form-control" id="psww">
+            <input formControlName="pswd" name="psw" type="text" placeholder="Enter password" [(ngModel)]="psw"  class="form-control" id="psww">
         </div>
     
         <div class="text-center mt-2 p-2">
