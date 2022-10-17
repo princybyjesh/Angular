@@ -1,20 +1,27 @@
+<form (ngSubmit)="register() " [formGroup]="registerForm" >
+
     <div class="container w-50 bg-light border mt-5 p-3">
            <div class="mt-2 p-2">
-            <input formControlName="username" name="username" type="text" placeholder="Enter Username" [(ngModel)]="uname"  class="form-control" id="unamee">
-    </div>
-    
- <form (ngSubmit)="register() " [formGroup]="registerForm" >
+            <input formControlName="uname" name="username" type="text" placeholder="Enter Username"  class="form-control" id="unamee">
+            <div *ngIf="this.registerForm.get('uname')?.errors&&this.registerForm.get('uname')?.touched " ><p>Invalid username</p></div>
+
+        </div>
+
+
         <div class="mt-2 p-2">
-            <input formControlName="acno"  name="acno" type="text" placeholder="Enter acnumber" [(ngModel)]="acno"  class="form-control" id="anum">
+            <input formControlName="acno"  name="acno" type="text" placeholder="Enter acnumber"  class="form-control" id="anum">
+            <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched " ><p>Invalid acccount number</p></div>
+
         </div>
         <div class="mt-2 p-2">
-            <input formControlName="pswd" name="psw" type="text" placeholder="Enter password" [(ngModel)]="psw"  class="form-control" id="psww">
+            <input formControlName="pswd" name="psw" type="text" placeholder="Enter password"  class="form-control" id="psww">
+            <div *ngIf="this.registerForm.get('pswd')?.errors&&this.registerForm.get('pswd')?.touched " ><p>Invalid password</p></div>
+
         </div>
     
         <div class="text-center mt-2 p-2">
             <button type="submit" class="btn btn-sucess">Register</button>
         
         </div>
-        
+    </div> 
  </form>
-    </div>

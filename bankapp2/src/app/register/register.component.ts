@@ -14,7 +14,10 @@ acno=""
 psw=""
 // model to registration form
 registerForm=this.fb.group({
-  uname:['',[Validators.required,Validators.pattern('[a-zA-Z+]')]],acno:['',[]],pswd:['',[]]
+  uname:['',[Validators.required]],
+  acno:['',[Validators.required,Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+  pswd:['',[Validators.required, ]]
+
 })
   constructor(private fb:FormBuilder, private ds:DataService,private router:Router) { }
 
@@ -25,13 +28,18 @@ register(): void{
   var uname=this.registerForm.value.uname
   var acno=this.registerForm.value.acno
   var psw=this.registerForm.value.pswd
-  const result= this.ds.register(acno,uname,psw)
-if(result){
+ const result= this.ds.register(acno,uname,psw)
+if(this.registerForm.valid){
+ if(result){
   alert("registered")
   this.router.navigateByUrl('')
 }
 else{
   alert('user already exist')
+}
+}
+else{
+  alert("form invalid")
 }
 }
 }

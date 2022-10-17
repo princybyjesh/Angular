@@ -1,13 +1,17 @@
 <div><h3>{{aim}}</h3></div>
 <div class="container w-50 bg-light border mt-5 p-3">
     <h1 class="text-center">login page</h1>
-<form (ngSubmit)="login()" >
+<form (ngSubmit)="login()"  [formGroup]="loginForm">
 <div class="mt-2 p-2">
-    <input name="acno" type="text" [placeholder]="acnt" [(ngModel)]="acno"  class="form-control" id="acid11">
+    <input formControlName="acno" type="text" [placeholder]="acnt"class="form-control" id="acid11">
+    <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched " ><p>Invalid acccount number</p></div>
+
 </div>   
  <div class="mt-2 p-2">
-        <input name="psw" type="text" placeholder="password" [(ngModel)]="psw"  class="form-control" id="acid">
-</div>
+        <input formControlName="psw" type="text" placeholder="password"  class="form-control" id="acid">
+        <div *ngIf="this.loginForm.get('psw')?.errors&&this.loginForm.get('psw')?.touched " ><p>Invalid password</p></div>
+
+    </div>
 
 
 <div class="text-center mt-2 p-2">

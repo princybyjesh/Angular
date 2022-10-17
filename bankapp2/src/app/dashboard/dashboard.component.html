@@ -6,18 +6,24 @@
 </div>
 <div class="container w-50 bg-light border mt-5 p-3">
     <h1 class="text-center">Deposit</h1>
+    <form (ngSubmit)="deposit()" [formGroup]="depositForm">
 
     <div class="mt-2 p-2">
-     <input name="acno" type="text" placeholder="Enter acno" [(ngModel)]="acnum"  class="form-control" id="acno">
-</div>
+     <input formControlName="acnum" name="acno" type="text" placeholder="Enter acno" class="form-control" id="acno">
+     <div *ngIf="this.depositForm.get('acnum')?.errors&&this.depositForm.get('acnum')?.touched " ><p>Invalid password</p></div>
 
-<form (ngSubmit)="deposit()">
+    </div>
+
  <div class="mt-2 p-2">
-     <input name="psw" type="text" placeholder="Enter password" [(ngModel)]="pswrd"  class="form-control" id="psw">
- </div>
+     <input formControlName="pswrd" name="pswrd" type="text" placeholder="Enter password"   class="form-control" id="psw">
+     <div *ngIf="this.depositForm.get('pswrd')?.errors&&this.depositForm.get('pswrd')?.touched " ><p>Invalid password</p></div>
+
+    </div>
  <div class="mt-2 p-2">
-     <input name="amnt" type="text" placeholder="Enter amount" [(ngModel)]="amnt"  class="form-control" id="amnt">
- </div>
+     <input  formControlName="amnt" name="amnt" type="text" placeholder="Enter amount"   class="form-control" id="amnt">
+     <div *ngIf="this.depositForm.get('amnt')?.errors&&this.depositForm.get('amnt')?.touched " ><p>Invalid password</p></div>
+
+    </div>
 
  <div class="text-center mt-2 p-2">
      <button type="submit" class="btn btn-sucess">Deposit</button>
@@ -30,22 +36,29 @@
 
 
 <div class="container w-50 bg-light border mt-5 p-3">
+    <form (ngSubmit)="withdraw()"[formGroup]="Formwithdraw">
+
     <div class="mt-2 p-2">
         <h1 class="text-center">withdraw</h1>
 
-     <input name="acnum1" type="text" placeholder="Enter acno" [(ngModel)]="acnum1"  class="form-control" id="unamee">
-</div>
+     <input formControlName="acnum1" name="acnum1" type="text" placeholder="Enter acno" [(ngModel)]="acnum1"  class="form-control" id="unamee">
+     <div *ngIf="this.Formwithdraw.get('acnum1')?.errors&&this.Formwithdraw.get('acnum1')?.touched " ><p>Invalid password</p></div>
 
-<form (ngSubmit)="withdraw()">
+    </div>
+
  <div class="mt-2 p-2">
-     <input name="pswrd1" type="text" placeholder="Enter password" [(ngModel)]="pswrd1"  class="form-control" id="pass">
- </div>
+     <input formControlName="pswrd1" name="pswrd1" type="text" placeholder="Enter password" [(ngModel)]="pswrd1"  class="form-control" id="pass">
+     <div *ngIf="this.Formwithdraw.get('pswrd1')?.errors&&this.Formwithdraw.get('pswrd1')?.touched " ><p>Invalid password</p></div>
+
+    </div>
  <div class="mt-2 p-2">
-     <input name="amnt1" type="text" placeholder="Enter amount" [(ngModel)]="amnt1"  class="form-control" id="amt">
- </div>
+     <input formControlName="amnt1" name="amnt1" type="text" placeholder="Enter amount" [(ngModel)]="amnt1"  class="form-control" id="amt">
+     <div *ngIf="this.Formwithdraw.get('amnt1')?.errors&&this.Formwithdraw.get('amnt1')?.touched " ><p>Invalid password</p></div>
+
+    </div>
 
  <div class="text-center mt-2 p-2">
-     <button type="submit" class="btn btn-sucess">Withdraw</button>
+     <button type="submit" class="btn btn-success">Withdraw</button>
  
  </div>
  
