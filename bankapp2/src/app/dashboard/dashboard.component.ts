@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -17,6 +18,9 @@ amnt=""
 acnum1=""
 pswrd1=""
 amnt1=""
+anum:any
+sDetails:any
+
   userDetails: any;
 
 depositForm=this.fb.group({
@@ -32,12 +36,18 @@ Formwithdraw=this.fb.group({
 
 })
 
-  constructor(private ds:DataService,private dp:DataService,private fb:FormBuilder) { 
+  constructor(private ds:DataService,private dp:DataService,private fb:FormBuilder,private router:Router) { 
     this.user=this.ds.currentUser
+    this.sDetails=new Date()
   }
 
 
   ngOnInit(): void {
+
+    if(!localStorage.getItem('currentAcno')){
+      alert("pls login first")
+      this.router.navigateByUrl('')
+    }
   }
   deposit(){
 var acnum=this.depositForm.value.acnum
@@ -69,4 +79,18 @@ withdraw(){
   alert("invalid form")
  } 
 }
+logout(){
+  localStorage.removeItem('currentUser')
+  localStorage.removeItem('currentAcno')
+
+this.router.navigateByUrl('')
+}
+deleteconfirm(){
+  this.anum=JSON.parse(localStorage.getItem('currentAcno')||'')
+}
+oncancel(){
+  this.anum=""
+}
+
+
 }

@@ -1,12 +1,22 @@
+<div class="text-end mt-5 me-3 p-2">
+    <button (click)="logout()" class="btn btn-info">logout</button>
+</div>
+<div class="text-end mt-5 me-3 p-2">
+    <button  class="btn btn-danger" (click)="deleteconfirm()">delete</button>
+</div>
+<app-deleteconform (onCancel)="oncancel()" [item]="anum"></app-deleteconform>
+<div><h3>systen date and time{{ sDetails| date:'short' }}</h3>
+</div>
+
 <div>
     <h1>WELCOME{{user}}</h1>
 </div>
 <div class="p-5 mt-3 ms-3 bg-light" style="height: 50px;width: 400px;">
 <a routerLink="/transations">view transation history</a>
 </div>
-<div class="container w-50 bg-light border mt-5 p-3">
+<div [ngClass]="anum?'style1':''" class="container w-50 bg-light border mt-5 p-3">
     <h1 class="text-center">Deposit</h1>
-    <form (ngSubmit)="deposit()" [formGroup]="depositForm">
+    <form  (ngSubmit)="deposit()" [formGroup]="depositForm">
 
     <div class="mt-2 p-2">
      <input formControlName="acnum" name="acno" type="text" placeholder="Enter acno" class="form-control" id="acno">
@@ -36,7 +46,7 @@
 
 
 <div class="container w-50 bg-light border mt-5 p-3">
-    <form (ngSubmit)="withdraw()"[formGroup]="Formwithdraw">
+    <form [ngClass]="anum?'style1':''" (ngSubmit)="withdraw()"[formGroup]="Formwithdraw">
 
     <div class="mt-2 p-2">
         <h1 class="text-center">withdraw</h1>
